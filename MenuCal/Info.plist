@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>MenuCal uses Calendar to read event attachments like Google Docs and Slides links.</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.richcollier.menucal</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>menucal</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

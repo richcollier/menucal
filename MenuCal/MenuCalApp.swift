@@ -1,17 +1,12 @@
-//
-//  MenuCalApp.swift
-//  MenuCal
-//
-//  Created by richcollier on 3/12/26.
-//
-
 import SwiftUI
 
 @main
 struct MenuCalApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+        // A Settings scene is required to satisfy SwiftUI's App protocol.
+        // The real UI lives in the menubar via AppDelegate.
+        Settings { EmptyView() }
     }
 }
