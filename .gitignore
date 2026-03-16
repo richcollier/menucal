@@ -22,3 +22,6 @@ build/
 
 # Claude memory (not part of the project)
 MenuCal/memory/
+
+# Xcode exported app folders
+MenuCal/Utilities/MenuCal */

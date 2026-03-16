@@ -4,8 +4,14 @@ struct MiniCalendarView: View {
     @EnvironmentObject var calendarService: EventKitService
     @State private var displayedMonth: Date = Calendar.current.startOfMonth(for: Date())
 
-    private let dayLabels = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
+    @AppStorage("weekStartsOnMonday") private var weekStartsOnMonday = false
     private let cal = Calendar.current
+
+    private var dayLabels: [String] {
+        weekStartsOnMonday
+            ? ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+            : ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
+    }
 
     var body: some View {
         VStack(spacing: 4) {
@@ -120,7 +126,8 @@ struct MiniCalendarView: View {
 
     private func daysInMonth(for month: Date) -> [Date?] {
         let firstDay = cal.startOfMonth(for: month)
-        let firstWeekday = cal.component(.weekday, from: firstDay) - 1 // 0 = Sunday
+        let weekdayRaw = cal.component(.weekday, from: firstDay) - 1 // 0=Sun … 6=Sat
+        let firstWeekday = weekStartsOnMonday ? (weekdayRaw + 6) % 7 : weekdayRaw
         let dayCount = cal.range(of: .day, in: .month, for: month)!.count
 
         var days: [Date?] = Array(repeating: nil, count: firstWeekday)

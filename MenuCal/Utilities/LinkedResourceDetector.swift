@@ -48,6 +48,7 @@ struct LinkedResource: Identifiable {
             let isMeeting = lower.contains("zoom.us/j/") || lower.contains("meet.google.com/")
                          || lower.contains("tel.meet/") || lower.contains("teams.microsoft.com/l/meetup")
                          || lower.contains("webex.com/meet") || lower.contains("webex.com/join")
+                         || (lower.contains("webex.com") && (lower.contains("j.php") || lower.contains("/wc/")))
             if isMeeting { continue }
 
             guard seen.insert(abs).inserted else { continue }

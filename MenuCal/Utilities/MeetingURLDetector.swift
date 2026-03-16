@@ -18,6 +18,8 @@ enum MeetingURLDetector {
         #"https://teams\.microsoft\.com/l/meetup-join/[^\s"<>]+"#,
         #"https://[^\s"<>]*webex\.com/meet/[^\s"<>]+"#,
         #"https://[^\s"<>]*webex\.com/join/[^\s"<>]+"#,
+        #"https://[^\s"<>]*webex\.com/[^\s"<>]*j\.php[^\s"<>]*"#,
+        #"https://[^\s"<>]*webex\.com/wc/[^\s"<>]+"#,
     ]
 
     private static func firstMeetingURL(in text: String) -> URL? {
