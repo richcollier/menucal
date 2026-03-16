@@ -34,8 +34,6 @@ struct SettingsView: View {
                     remindersSection
                     Divider().padding(.vertical, 4)
                     calendarsSection
-                    Divider().padding(.vertical, 4)
-                    quitSection
                 }
                 .padding(.bottom, 12)
             }
@@ -190,36 +188,6 @@ struct SettingsView: View {
                     }
                 }
             }
-            .background(Color(NSColor.controlBackgroundColor))
-            .cornerRadius(8)
-            .padding(.horizontal, 16)
-        }
-        .padding(.top, 12)
-    }
-
-    // MARK: - Quit section
-
-    private var quitSection: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            sectionHeader("Application")
-
-            Button {
-                NSApplication.shared.terminate(nil)
-            } label: {
-                HStack {
-                    Text("Quit MenuCal")
-                        .font(.subheadline)
-                    Spacer()
-                    Image(systemName: "power")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
-                .padding(.horizontal, 12)
-                .padding(.vertical, 10)
-                .contentShape(Rectangle())
-            }
-            .buttonStyle(.plain)
-            .foregroundColor(.red)
             .background(Color(NSColor.controlBackgroundColor))
             .cornerRadius(8)
             .padding(.horizontal, 16)
